@@ -1,12 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import './index.css';
-import App from './App';
+import App from './containers/App';
+import {searchRobots} from './reducers';
+// import Hello from './Hello';
+// import Card from './Card';
+// import CardList from './CardList';
 import * as serviceWorker from './serviceWorker';
+import 'tachyons';
+
+const store = createStore(searchRobots)
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Hello greeting = {`Hello React Ninja`}/>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  	<Provider store={store}>
+  		<App />
+  	</Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
